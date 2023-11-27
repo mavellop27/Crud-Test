@@ -21,20 +21,22 @@ public class TareaServices implements ITareaServices{
 
 	@Override
 	public Optional<Tarea> ListarId(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(id);
 	}
 
 	@Override
 	public int save(Tarea t) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res=0;
+		Tarea tarea = data.save(t);
+		if(!tarea.equals(null)) {
+			res=1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		data.deleteById(id);
 	}
 
 }
